@@ -2,26 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  background-color: #000;
+  overflow: hidden;
+  color: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.dialog::backdrop {
+  background-color: #0000008a;
+  backdrop-filter: blur(2px);
+}
+
+dialog[open] {
+  position: relative;
+}
+
+.hide {
+  animation: fadeOut 1s ease !important;
+}
+
+.top-to-bottom,
+.bottom-to-top,
+.right-to-left,
+.left-to-right {
+  animation: topToBottomIn 1s ease;
+}
+@keyframes fadeIn {
+  0% {
+    transform: translateX(-800%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes fadeOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(800%);
+  }
+}
+
+@keyframes topToBottomIn {
+  0% {
+    transform: translateX(-800%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(800%);
+  }
 }
