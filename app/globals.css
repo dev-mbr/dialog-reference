@@ -13,40 +13,78 @@ body {
   backdrop-filter: blur(2px);
 }
 
-dialog[open] {
-  position: relative;
-}
-
 .hide {
   animation: fadeOut 1s ease !important;
 }
+@keyframes fadeOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(800%);
+  }
+}
 
-.top-to-bottom,
-.bottom-to-top,
-.right-to-left,
-.left-to-right {
+/* animação para fechar de cima para baixo */
+
+.top-to-bottom {
   animation: topToBottomIn 1s ease;
 }
-@keyframes fadeIn {
-  0% {
-    transform: translateX(-800%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(800%);
-  }
-}
-
 @keyframes topToBottomIn {
   0% {
+    transform: translateY(-800%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.hide-top {
+  animation: topToBottomOut 1s ease !important;
+}
+@keyframes topToBottomOut {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(800%);
+  }
+}
+
+/* animação para fechar de baixo para cima */
+
+.bottom-to-top {
+  animation: bottomToTopIn 1s ease;
+}
+
+@keyframes bottomToTopIn {
+  0% {
+    transform: translateY(800%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hide-bottom {
+  animation: bottomToTopOut 1s ease !important;
+}
+@keyframes bottomToTopOut {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-800%);
+  }
+}
+
+/* animação para fechar da esquerda para direita */
+
+.left-to-right {
+  animation: leftToRightIn 1s ease;
+}
+
+@keyframes leftToRightIn {
+  0% {
     transform: translateX(-800%);
   }
   100% {
@@ -54,7 +92,11 @@ dialog[open] {
   }
 }
 
-@keyframes fadeOut {
+.hide-left {
+  animation: leftToRightOut 1s ease !important;
+}
+
+@keyframes leftToRightOut {
   0% {
     transform: translateX(0);
   }
@@ -62,3 +104,39 @@ dialog[open] {
     transform: translateX(800%);
   }
 }
+
+/* animação para fechar da esquerda para direita */
+
+.right-to-left {
+  animation: rightToLeftIn 1s both;
+}
+
+@keyframes rightToLeftIn {
+  0% {
+    transform: translateX(900%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.hide-right {
+  animation: rightToLeftOut 1s ease !important;
+}
+@keyframes rightToLeftOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-800%);
+  }
+}
+
+/* @media (max-width: 1024px) {
+  .top-to-bottom,
+  .bottom-to-top,
+  .right-to-left,
+  .left-to-right {
+    animation: bottomToTopIn 1s ease !important;
+  }
+} */

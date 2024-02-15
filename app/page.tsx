@@ -7,16 +7,18 @@ function Home() {
   const refButton = useRef<HTMLButtonElement>(null);
 
   const openModal = () => {
+    document.body.style.overflowX = "hidden";
     refDialog.current?.showModal();
   };
 
-  const closeModal = () => {
+  const closeModal = (animation: string) => {
+    document.body.style.overflowX = "";
     if (refDialog.current) {
-      refDialog.current.classList.add("hide");
+      refDialog.current.classList.add(animation);
       refDialog.current.addEventListener(
         "webkitAnimationEnd",
         function animationEnd() {
-          refDialog.current?.classList.remove("hide");
+          refDialog.current?.classList.remove(animation);
           refDialog.current?.close();
           refDialog.current?.removeEventListener(
             "webkitAnimationEnd",
@@ -38,7 +40,7 @@ function Home() {
           rect.top > event.clientY ||
           rect.bottom < event.clientY
         ) {
-          closeModal();
+          closeModal("hide-right");
         }
       }
     });
@@ -54,7 +56,7 @@ function Home() {
           Open modal
         </button>
       </div>
-      <Dialog ref={refDialog} />
+      <Dialog ref={refDialog} transitions="right-to-left" />
     </div>
   );
 }

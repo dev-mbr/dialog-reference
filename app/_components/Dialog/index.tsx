@@ -9,15 +9,17 @@ interface Props {
 }
 
 // eslint-disable-next-line react/display-name
-const Dialog = forwardRef(({}, ref: any) => {
-  return (
-    <dialog ref={ref} className={`h-[38rem] w-[30rem] dialog top-to-bottom`}>
-      <iframe
-        className="w-full h-full"
-        src="https://1ku7oxcfm1h.typeform.com/to/wmhKhsL5#conversion=xxxxx"
-      ></iframe>
-    </dialog>
-  );
-});
+const Dialog = forwardRef(
+  ({ transitions = "left-to-right" }: Props, ref: any) => {
+    return (
+      <dialog
+        ref={ref}
+        className={`fixed lg:top-0 top-auto h-[38rem] lg:w-[30rem] w-full dialog  ${transitions}`}
+      >
+        <div className="w-full h-full bg-slate-600"></div>
+      </dialog>
+    );
+  }
+);
 
 export default Dialog;
