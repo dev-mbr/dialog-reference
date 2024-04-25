@@ -1,18 +1,27 @@
 {
-  "name": "dialog",
+  "name": "dialog-nima",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "Um component dialog",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dev-mbr/dialog-reference"
+  },
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
     "next": "14.0.4"
   },
+  "keywords": [
+    "nextjs",
+    "componente"
+  ],
   "devDependencies": {
     "typescript": "^5",
     "@types/node": "^20",
