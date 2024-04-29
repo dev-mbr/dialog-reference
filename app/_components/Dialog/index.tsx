@@ -1,5 +1,4 @@
-import React, { forwardRef } from "react";
-
+import React, { useEffect, useRef, forwardRef } from "react";
 interface Props {
   transitions?:
     | "top-to-bottom"
